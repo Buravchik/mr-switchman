@@ -4,6 +4,21 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// ===== firestore init =====
+//var firebaseConfig = require('./secret/firesoreConfig.json');
+//var firebase = require('firebase');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./secret/firestoreServiceAccount.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://japs-716bd.firebaseio.com"
+});
+
+
+// ===== end firestore init =====
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
