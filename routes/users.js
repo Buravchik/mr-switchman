@@ -12,15 +12,15 @@ router.get('/', function(req, res, next) {
   .then((snapshot) => {
     snapshot.forEach((doc) => {
       userList.push(doc.data());
-      console.log(doc.id, '=>', doc.data());
-      console.log(userList);
     });
+    console.log('-----list of users---');
+    console.log(userList);
+    console.log('-----end of list of users---');
+    res.render('users', { users: userList });
   })
   .catch((err) => {
     console.log('Error getting documents', err);
   });
-  
-  res.render('users', { users: [ { nickname: 'Комрад', authid: 'asdlkiww' }, { authid: 'sdhsdghd', nickname: 'Васян' } ] });
 });
 
 module.exports = router;

@@ -2,6 +2,6 @@ extends layout
 
 block content
   div
-    each val in users
-      div= val.nickname
-        br
+    ul
+      each val in users
+        li= val.nickname

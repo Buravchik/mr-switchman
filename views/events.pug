@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  p Group name #{group}
-  p Event name #{event}
+  div
+    ul
+      each val in events
+        li
+          a(href='/groups/' + val.name + '/events')= val.name
